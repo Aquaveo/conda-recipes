@@ -10,3 +10,6 @@ __pycache__
 
 # Editor files
 *.swp
+
+# PyCharm project files
+.idea/
