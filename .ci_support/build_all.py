@@ -23,7 +23,7 @@ def build_all(recipes_dir, arch):
     if not folders:
         print("Found no recipes to build")
         return
-    channel_urls = ['local', 'conda-forge', 'defaults']
+    channel_urls = ['local', 'conda-forge', 'defaults', 'Aquaveo']
 
     # ensure that noarch path exists and is indexed for newer conda (4.4+)
     noarch_path = os.path.join(sys.exec_prefix, 'conda-bld', 'noarch')
