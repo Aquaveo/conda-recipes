@@ -22,6 +22,7 @@ install:
     # Use the pre-installed Miniconda for the desired arch
     - cmd: call %CONDA_INSTALL_LOCN%\Scripts\activate.bat
     - cmd: conda.exe config --add channels conda-forge
+    - cmd: conda.exe config --add channels Aquaveo
     - cmd: conda.exe config --set show_channel_urls true
     - cmd: appveyor-retry conda.exe update --yes --quiet conda
     - cmd: appveyor-retry conda.exe install --yes --quiet conda-forge-pinning conda-forge-ci-setup=1.* networkx
