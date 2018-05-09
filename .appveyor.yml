@@ -7,7 +7,8 @@ environment:
 
   matrix:
     - PLATFORM: "64"
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      VS_VERSION: Visual Studio 14
 
 artifacts:
     # Store built conda packages as artifacts
