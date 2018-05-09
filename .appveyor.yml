@@ -26,7 +26,7 @@ install:
     - cmd: conda.exe config --add channels Aquaveo
     - cmd: conda.exe config --set show_channel_urls true
     - cmd: appveyor-retry conda.exe update --yes --quiet conda
-    - cmd: appveyor-retry conda.exe install conda-build anaconda-client
+    - cmd: appveyor-retry conda.exe install --yes conda-build anaconda-client
 
 # Skip .NET project specific build phase.
 build: off
