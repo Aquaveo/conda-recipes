@@ -21,6 +21,8 @@ requirements:
     - cmake >=3.0.0
     - boost =1.65.1
     - cxxtest >=4.0.0
+  run:
+    - libgcc >3 # [linux]
 
 test:
   source_files:
