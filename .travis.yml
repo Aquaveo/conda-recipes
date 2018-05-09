@@ -35,7 +35,7 @@ script:
   - echo "Configuring conda."
   - conda config --add channels aquaveo
   - conda config --set show_channel_urls true
-  - conda install --yes --quiet networkx anaconda-client
+  - conda install --yes --quiet networkx conda-build anaconda-client
 
     # We just want to build all of the recipes.
   - conda build recipes/* --token ${CI_CONDA_TOKEN}
