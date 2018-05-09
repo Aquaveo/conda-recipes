@@ -39,4 +39,4 @@ script:
   - conda install --yes --quiet networkx anaconda-client
 
     # We just want to build all of the recipes.
-  - python .ci_support/build_all.py ./recipes
+  - conda build recipes/*
