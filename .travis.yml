@@ -36,7 +36,7 @@ script:
   - conda config --add channels aquaveo
   - conda config --set show_channel_urls true
   - conda update
-  - conda install --yes conda-build anaconda-client
+  - conda install --yes --quiet networkx anaconda-client
 
     # We just want to build all of the recipes.
   - python .ci_support/build_all.py ./recipes
