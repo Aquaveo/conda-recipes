@@ -33,7 +33,7 @@ script:
     # Configure conda.
   - echo ""
   - echo "Configuring conda."
-  - conda config --add channels conda-forge aquaveo
+  - conda config --add channels aquaveo
   - conda config --set show_channel_urls true
 
     # We just want to build all of the recipes.
