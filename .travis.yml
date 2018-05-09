@@ -3,10 +3,10 @@ language: generic
 
 os:
   - linux
-    env: XMS_RUN_TESTS=1
   - osx
-    osx_image: xcode6.4
-    env: XMS_RUN_TESTS=1
+
+osx_image: xcode6.4
+env: XMS_RUN_TESTS=1
 
 script:
     # Remove homebrew.
