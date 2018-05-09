@@ -32,7 +32,7 @@ install:
 build: off
 
 test_script:
-    - conda.exe build recipes\* --token %CI_CONDA_TOKEN% -u Aquaveo
+    - conda.exe build recipes\* --token %CI_CONDA_TOKEN%
 
     # copy any newly created conda packages into the conda_packages dir
     - cmd: mkdir conda_packages
