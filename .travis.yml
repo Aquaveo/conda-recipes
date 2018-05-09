@@ -1,17 +1,23 @@
 # The language in this case has no bearing - we are going to be making use of conda.
 language: generic
 
-osx: &osx
-  os: osx
+os:
+  - linux
+    env: XMS_RUN_TESTS=1
+  - osx
+    osx_image: xcode6.4
+    env: XMS_RUN_TESTS=1
 
 script:
     # Remove homebrew.
-  - echo ""
-  - echo "Removing homebrew from Travis CI to avoid conflicts."
-  - curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew
-  - chmod +x ~/uninstall_homebrew
-  - ~/uninstall_homebrew -fq
-  - rm ~/uninstall_homebrew
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+    echo ""
+    echo "Removing homebrew from Travis CI to avoid conflicts."
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew
+    chmod +x ~/uninstall_homebrew
+    ~/uninstall_homebrew -fq
+    rm ~/uninstall_homebrew
+    fi
 
     # Install Miniconda.
   - echo ""
@@ -30,9 +36,3 @@ script:
 
     # We just want to build all of the recipes.
   - python .ci_support/build_all.py ./recipes
-
-jobs:
-   include:
-     - <<: *osx
-       osx_image: xcode6.4
-       env: XMS_RUN_TESTS=1
