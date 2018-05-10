@@ -34,14 +34,14 @@ cat << EOF | docker run -i \
                         bash -ex || exit $?
 
 # Copy the host recipes folder so we don't ever muck with it
-cp -r /home/conda/conda-recipes/recipes ~/conda-recipes
+cp -r /home/conda/conda-recipes/recipes ~/recipes
 cp -r /home/conda/conda-recipes/.ci_support ~/.ci_support
 
 # Find the recipes from master in this PR and remove them.
-echo "Finding recipes merged in master and removing them from the build."
-pushd /home/conda/conda-recipes/recipes > /dev/null
-git ls-tree --name-only master -- . | xargs -I {} sh -c "rm -rf ~/conda-recipes/{} && echo Removing recipe: {}"
-popd > /dev/null
+#echo "Finding recipes merged in master and removing them from the build."
+#pushd /home/conda/recipes/recipes > /dev/null
+#git ls-tree --name-only master -- . | xargs -I {} sh -c "rm -rf ~/recipes/{} && echo Removing recipe: {}"
+#popd > /dev/null
 
 # Unused, but needed by conda-build currently... :(
 export CONDA_NPY='19'
@@ -52,10 +52,10 @@ conda clean --lock
 conda install --yes --quiet networkx conda-build anaconda-client
 
 # yum installs anything from a "yum_requirements.txt" file that isn't a blank line or comment.
-find ~/conda-recipes -mindepth 2 -maxdepth 2 -type f -name "yum_requirements.txt" \
+find ~/recipes -mindepth 2 -maxdepth 2 -type f -name "yum_requirements.txt" \
     | xargs -n1 cat | grep -v -e "^#" -e "^$" | \
     xargs -r /usr/bin/sudo -n yum install -y
 
-conda build ~/conda-recipes/* --token ${CI_CONDA_TOKEN}
+conda build ~/recipes/* --token ${CI_CONDA_TOKEN}
 
 EOF
