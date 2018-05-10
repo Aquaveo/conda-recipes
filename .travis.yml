@@ -32,7 +32,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       sudo cp ~/miniconda/x86_64-conda_cos6-linux-gnu/sysroot/lib/libstdc++.so /usr/lib/x86_64-linux-gnu/libstdc++.so.6;
     fi
-  - conda build recipes/xmscore --token ${CI_CONDA_TOKEN}
+  - conda build recipes/* --token ${CI_CONDA_TOKEN}
 
 env:
   global: 
