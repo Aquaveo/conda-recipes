@@ -19,4 +19,5 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install libstdc++6
+            source ~/miniconda/bin/activate root
             conda build ./recipes/* --token ${CI_CONDA_TOKEN}
