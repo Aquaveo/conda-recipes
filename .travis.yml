@@ -1,12 +1,4 @@
 # The language in this case has no bearing - we are going to be making use of conda.
-language: generic
-
-os:
-  - linux
-  - osx
-
-osx_image: xcode6.4
-env: XMS_RUN_TESTS=1
 
 script:
     # Remove homebrew.
@@ -40,3 +32,18 @@ script:
     # We just want to build all of the recipes.
   - strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
   - conda build recipes/* --token ${CI_CONDA_TOKEN}
+
+env: XMS_RUN_TESTS=1
+
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      language: python
+      python: "3.6"
+      services:
+        - docker
+    - os: osx
+      language: generic
+      osx_image: xcode9.2
+
