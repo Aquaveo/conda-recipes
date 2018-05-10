@@ -16,7 +16,6 @@ script:
   - echo "Installing a fresh version of Miniconda."
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       curl -L https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh > ~/miniconda.sh;
-      export MACOSX_DEPLOYMENT_TARGET="10.9";
     else
       curl -L https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > ~/miniconda.sh;
     fi
@@ -24,8 +23,6 @@ script:
   - source ~/miniconda/bin/activate root
 
     # Configure conda.
-  - export CPU_COUNT=2
-  - export PYTHONUNBUFFERED=1
   - echo "Configuring conda."
   - conda config --add channels aquaveo
   - conda config --set show_channel_urls true
@@ -34,7 +31,11 @@ script:
     # We just want to build all of the recipes.
   - conda build recipes/* --token ${CI_CONDA_TOKEN}
 
-env: XMS_RUN_TESTS=1
+env: 
+  - XMS_RUN_TESTS=1
+  - CPU_COUNT=2
+  - PYTHONUNBUFFERED=1
+  - MACOSX_DEPLOYMENT_TARGET="10.9"
 
 matrix:
   include:
