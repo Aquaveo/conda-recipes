@@ -12,9 +12,10 @@ jobs:
           name: Install and Configure Conda
           command: |
             chmod +x ./.circleci/install_and_configure.sh
-            ./.circleci/install_and_configure.sh
+            /bin/bash ./.circleci/install_and_configure.sh
 
       - run:
           name: Build Conda Packages
           command: |
+            source ~/miniconda/bin/activate root
             conda build recipes/* --token ${CI_CONDA_TOKEN}
