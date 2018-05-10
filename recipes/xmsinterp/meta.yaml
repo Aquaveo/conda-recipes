@@ -1,0 +1,48 @@
+{% set name = "xmsinterp" %}
+{% set version = "1.0.4" %}
+{% set sha256 = "20b71a618fe9580103b9e9ee5d10aac680922fd68dfbab9312f9ccc1e2da9bc7" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - python
+    - cmake >=3.0.0
+    - boost =1.65.1
+    - cxxtest >=4.0.0
+#    - pybind11 >=2.2.2
+    - xmscore >=1.0.19
+  run:
+    - python
+
+test:
+  source_files:
+    - build/runner{% if win %}.exe{% endif %}
+  commands:
+    - {% if unix %}build/runner{% else %}build\runner{% endif %}
+
+about:
+  home: aquaveo.com
+  license: XMSNG
+  license_file: LICENSE
+  summary: 'Interpolation library with for xms.'
+  doc_url: 'https://aquaveo.github.io/xmsinterp/'
+  dev_url: 'https://github.com/Aquaveo/xmsinterp'
+
+extra:
+  recipe-maintainers:
+    - swainn
+    - Tsubashi
+    - gagelarsen
+    - alemon-aquaveo
