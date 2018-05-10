@@ -31,11 +31,12 @@ script:
     # We just want to build all of the recipes.
   - conda build recipes/* --token ${CI_CONDA_TOKEN}
 
-env: 
-  - XMS_RUN_TESTS=1
-  - CPU_COUNT=2
-  - PYTHONUNBUFFERED=1
-  - MACOSX_DEPLOYMENT_TARGET="10.9"
+env:
+  global: 
+    - XMS_RUN_TESTS=1
+    - CPU_COUNT=2
+    - PYTHONUNBUFFERED=1
+    - MACOSX_DEPLOYMENT_TARGET="10.9"
 
 matrix:
   include:
