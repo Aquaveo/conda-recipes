@@ -11,6 +11,7 @@ jobs:
       - run:
           name: Install and Configure Conda
           command: |
+            chmod +x ./.circleci/install_and_configure.sh
             ./.circleci/install_and_configure.sh
 
       - run:
