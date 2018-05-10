@@ -20,5 +20,5 @@ jobs:
             sudo apt-get update
             sudo apt-get install libstdc++6
             source ~/miniconda/bin/activate root
-            ls ~/miniconda
+            cp ~/miniconda/x86_64-conda_cos6-linux-gnu/sysroot/lib/libstdc++.so /usr/lib/x86_64-linux-gnu/libstdc++.so.6
             conda build ./recipes/* --token ${CI_CONDA_TOKEN}
