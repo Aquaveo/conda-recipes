@@ -18,5 +18,5 @@ jobs:
           name: Build Conda Packages
           command: |
             sudo apt-get update
-            sudo apt-get install libstc++6
+            sudo apt-get install libstdc++6
             conda build ./recipes/* --token ${CI_CONDA_TOKEN}
