@@ -30,7 +30,7 @@ script:
 
     # We just want to build all of the recipes.
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk /opt/MacOSX10.9.sdk
+      ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk /opt/MacOSX10.9.sdk;
     else
       sudo cp ~/miniconda/x86_64-conda_cos6-linux-gnu/sysroot/lib/libstdc++.so /usr/lib/x86_64-linux-gnu/libstdc++.so.6;
     fi
