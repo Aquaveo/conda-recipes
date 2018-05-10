@@ -22,4 +22,5 @@ jobs:
       - run:
           name: Build Conda Packages
           command: |
+            chmod +x ./.circleci/run_docker_build.sh
             ./.circleci/run_docker_build.sh
