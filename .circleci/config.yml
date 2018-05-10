@@ -15,12 +15,8 @@ jobs:
             /bin/bash ./.circleci/install_and_configure.sh
 
       - run:
-          name: Pull Docker Image
-          command: |
-            docker pull condaforge/linux-anvil
-
-      - run:
           name: Build Conda Packages
           command: |
-            chmod +x ./.circleci/run_docker_build.sh
-            ./.circleci/run_docker_build.sh
+            apt-get update
+            apt-get install libstc++6
+            conda build ./recipes/* --token ${CI_CONDA_TOKEN}

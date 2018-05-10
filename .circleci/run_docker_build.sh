@@ -33,10 +33,6 @@ cat << EOF | docker run -i \
                         $IMAGE_NAME \
                         bash -ex || exit $?
 
-apt-get update
-apt-get upgrade
-apt-get dist-upgrade
-
 # Copy the host recipes folder so we don't ever muck with it
 cp -r /home/conda/conda-recipes/recipes ~/recipes
 cp -r /home/conda/conda-recipes/.ci_support ~/.ci_support
