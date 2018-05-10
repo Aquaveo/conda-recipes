@@ -10,7 +10,7 @@ channels:
  - Aquaveo
  - defaults
 conda-build:
- root-dir: /home/conda/staged-recipes/build_artifacts
+ root-dir: /home/conda/conda-recipes/build_artifacts
 always_yes: true
 show_channel_urls: true
 CONDARC
@@ -27,19 +27,19 @@ if hash docker-machine 2> /dev/null && docker-machine active > /dev/null; then
 fi
 
 cat << EOF | docker run -i \
-                        -v ${REPO_ROOT}:/home/conda/staged-recipes \
+                        -v ${REPO_ROOT}:/home/conda/conda-recipes \
                         -a stdin -a stdout -a stderr \
                         -e HOST_USER_ID=${HOST_USER_ID} \
                         $IMAGE_NAME \
                         bash -ex || exit $?
 
 # Copy the host recipes folder so we don't ever muck with it
-cp -r /home/conda/staged-recipes/recipes ~/conda-recipes
-cp -r /home/conda/staged-recipes/.ci_support ~/.ci_support
+cp -r /home/conda/conda-recipes/recipes ~/conda-recipes
+cp -r /home/conda/conda-recipes/.ci_support ~/.ci_support
 
 # Find the recipes from master in this PR and remove them.
 echo "Finding recipes merged in master and removing them from the build."
-pushd /home/conda/staged-recipes/recipes > /dev/null
+pushd /home/conda/conda-recipes/recipes > /dev/null
 git ls-tree --name-only master -- . | xargs -I {} sh -c "rm -rf ~/conda-recipes/{} && echo Removing recipe: {}"
 popd > /dev/null
 
