@@ -38,5 +38,5 @@ script:
   - conda install --yes --quiet networkx conda-build anaconda-client
 
     # We just want to build all of the recipes.
-  - strings /usr/lib/libstdc++.so.6 | grep GLIBCXX
+  - strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
   - conda build recipes/* --token ${CI_CONDA_TOKEN}
