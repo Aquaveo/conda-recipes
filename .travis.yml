@@ -29,6 +29,9 @@ script:
   - conda install --yes --quiet networkx conda-build anaconda-client
 
     # We just want to build all of the recipes.
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      sudo cp ~/miniconda/x86_64-conda_cos6-linux-gnu/sysroot/lib/libstdc++.so /usr/lib/x86_64-linux-gnu/libstdc++.so.6;
+    fi
   - conda build recipes/* --token ${CI_CONDA_TOKEN}
 
 env:
