@@ -22,4 +22,4 @@ jobs:
       - run:
           name: Build Conda Packages
           command: |
-            ./circleci/run_docker_build.sh
+            ./.circleci/run_docker_build.sh
