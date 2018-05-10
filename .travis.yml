@@ -3,27 +3,29 @@
 script:
     # Remove homebrew.
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    echo "";
-    echo "Removing homebrew from Travis CI to avoid conflicts.";
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew;
-    chmod +x ~/uninstall_homebrew;
-    ~/uninstall_homebrew -fq;
-    rm ~/uninstall_homebrew;
+      echo "";
+      echo "Removing homebrew from Travis CI to avoid conflicts.";
+      curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew;
+      chmod +x ~/uninstall_homebrew;
+      ~/uninstall_homebrew -fq;
+      rm ~/uninstall_homebrew;
     fi
 
     # Install Miniconda.
   - echo ""
   - echo "Installing a fresh version of Miniconda."
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    curl -L https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh > ~/miniconda.sh;
+      curl -L https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh > ~/miniconda.sh;
+      export MACOSX_DEPLOYMENT_TARGET="10.9";
     else
-    curl -L https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > ~/miniconda.sh;
+      curl -L https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > ~/miniconda.sh;
     fi
   - bash ~/miniconda.sh -b -p ~/miniconda
   - source ~/miniconda/bin/activate root
 
     # Configure conda.
-  - echo ""
+  - export CPU_COUNT=2
+  - export PYTHONUNBUFFERED=1
   - echo "Configuring conda."
   - conda config --add channels aquaveo
   - conda config --set show_channel_urls true
