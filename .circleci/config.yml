@@ -1,0 +1,19 @@
+version: 2
+
+
+jobs:
+  build:
+    working_directory: ~/test
+    machine: true
+    steps:
+      - checkout
+
+      - run:
+          name: Install and Configure Conda
+          command: |
+            ./.circleci/install_and_configure.sh
+
+      - run:
+          name: Build Conda Packages
+          command: |
+            conda build recipes/* --token ${CI_CONDA_TOKEN}
