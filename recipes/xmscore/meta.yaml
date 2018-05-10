@@ -22,7 +22,7 @@ requirements:
     - boost =1.65.1
     - cxxtest >=4.0.0
   run:
-    - libgcc =5.2.0 # [linux]
+    - libgcc
 
 test:
   source_files:
