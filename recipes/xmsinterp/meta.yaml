@@ -1,6 +1,6 @@
 {% set name = "xmsinterp" %}
-{% set version = "1.0.4" %}
-{% set sha256 = "20b71a618fe9580103b9e9ee5d10aac680922fd68dfbab9312f9ccc1e2da9bc7" %}
+{% set version = "1.0.5" %}
+{% set sha256 = "06732d5f4c3cba084fdc723bbf4a61b742dc2ac8751b9d3747f92313be0afa48" %}
 
 package:
   name: {{ name|lower }}
@@ -21,7 +21,7 @@ requirements:
     - cmake >=3.0.0
     - boost =1.65.1
     - cxxtest >=4.0.0
-#    - pybind11 >=2.2.2
+    - pybind11 >=2.2.2
     - xmscore >=1.0.19
   run:
     - python
@@ -31,6 +31,8 @@ test:
     - build/runner{% if win %}.exe{% endif %}
   commands:
     - {% if unix %}build/runner{% else %}build\runner{% endif %}
+  import:
+    - xmsinterp_py
 
 about:
   home: aquaveo.com
