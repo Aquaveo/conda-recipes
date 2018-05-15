@@ -25,6 +25,7 @@ script:
     # Configure conda.
   - echo "Configuring conda."
   - conda config --add channels aquaveo
+  - conda config --append channels conda-forge
   - conda config --set show_channel_urls true
   - conda install --yes --quiet networkx conda-build jinja2 anaconda-client
 
