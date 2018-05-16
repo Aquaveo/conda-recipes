@@ -1,6 +1,6 @@
 {% set name = "xmsinterp" %}
-{% set version = "1.0.5" %}
-{% set sha256 = "06732d5f4c3cba084fdc723bbf4a61b742dc2ac8751b9d3747f92313be0afa48" %}
+{% set version = "1.0.6" %}
+{% set sha256 = "9f0e791097bc70aff89e604bba0087542fb2f025ba3448cd2737451ec2b4e48f" %}
 
 package:
   name: {{ name|lower }}
