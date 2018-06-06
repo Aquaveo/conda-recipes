@@ -1,6 +1,6 @@
 {% set name = "xmscore" %}
-{% set version = "1.0.20" %}
-{% set sha256 = "c0e36ee3e74c9d862914cbddf279c2c4f1c32b7e723aad8a43b0e8636d382db6" %}
+{% set version = "1.0.21" %}
+{% set sha256 = "223c47dd49e4654fbaa4b80a03401bfb6ef670bf9ba49ec84b318ac22cc2b1d1" %}
 
 package:
   name: {{ name|lower }}
@@ -21,12 +21,20 @@ requirements:
     - cmake >=3.0.0
     - boost =1.65.1
     - cxxtest >=4.0.0
+    - pybind11 >=2.2.2
 
 test:
   source_files:
     - build/runner{% if win %}.exe{% endif %}
+    - build/xmscore_py.cpython*
+    - xmscore/python/*.py
+    - xmscore/python/**/*.py
   commands:
     - {% if unix %}build/runner{% else %}build\runner{% endif %}
+    - cd build
+    - python -m unittest discover -v -p *_pyt.py -s ../xmscore/python
+  import:
+    - xmscore_py
 
 about:
   home: aquaveo.com
