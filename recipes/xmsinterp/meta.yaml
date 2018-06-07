@@ -7,9 +7,10 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  path: /home/buildbot/ERS/xmsinterp
+#  fn: {{ name }}-{{ version }}.tar.gz
+#  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
 
 build:
   number: 0
@@ -25,6 +26,7 @@ requirements:
     - xmscore >=1.0.19
   run:
     - python
+    - numpy
 
 test:
   source_files:
@@ -35,10 +37,10 @@ test:
   commands:
     - {% if unix %}build/runner{% else %}build\runner{% endif %}
     - cd build
-    - ls ../xmsinterp/python/interpolate
     - python -m unittest discover -v -p *_pyt.py -s ../xmsinterp/python
   import:
     - xmsinterp_py
+    - numpy
 
 about:
   home: aquaveo.com

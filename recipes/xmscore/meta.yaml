@@ -23,6 +23,7 @@ requirements:
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
 
+
 test:
   source_files:
     - build/runner{% if win %}.exe{% endif %}
@@ -35,6 +36,7 @@ test:
     - python -m unittest discover -v -p *_pyt.py -s ../xmscore/python
   import:
     - xmscore_py
+
 
 about:
   home: aquaveo.com
