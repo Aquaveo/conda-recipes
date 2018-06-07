@@ -7,10 +7,9 @@ package:
   version: {{ version }}
 
 source:
-  path: /home/buildbot/ERS/xmsinterp
-#  fn: {{ name }}-{{ version }}.tar.gz
-#  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
-#  sha256: {{ sha256 }}
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
