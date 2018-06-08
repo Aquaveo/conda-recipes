@@ -1,6 +1,6 @@
 {% set name = "xmscore" %}
-{% set version = "1.0.23" %}
-{% set sha256 = "8011bcd43289abd3ac140905b4d823306ca28576a2939d00e7f2d95cb6e947be" %}
+{% set version = "1.0.24" %}
+{% set sha256 = "df51b59475d9f052adbf150c0b8b0a18ec356e534a6791222841c5d8e6df84fa" %}
 
 package:
   name: {{ name|lower }}
@@ -27,7 +27,7 @@ requirements:
 test:
   source_files:
     - build/runner{% if win %}.exe{% endif %}
-    - build/xmscore_py.cpython*
+    - build/xmscore_py*
     - xmscore/python/*.py
     - xmscore/python/**/*.py
   commands:
