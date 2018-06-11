@@ -7,9 +7,10 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  path: /home/buildbot/ERS/xmscore
+#  fn: {{ name }}-{{ version }}.tar.gz
+#  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
 
 build:
   number: 0
@@ -27,12 +28,10 @@ requirements:
 test:
   source_files:
     - build/runner{% if win %}.exe{% endif %}
-    - build/xmscore_py*
     - xmscore/python/*.py
     - xmscore/python/**/*.py
   commands:
     - {% if unix %}build/runner{% else %}build\runner{% endif %}
-    - cd build
     - python -m unittest discover -v -p *_pyt.py -s ../xmscore/python
   import:
     - xmscore_py
