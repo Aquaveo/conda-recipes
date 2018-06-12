@@ -27,11 +27,13 @@ requirements:
 test:
   source_files:
     - build/runner{% if win %}.exe{% endif %}
+    - build/xmscore_py
     - xmscore/python/*.py
     - xmscore/python/**/*.py
   commands:
     - {% if unix %}build/runner{% else %}build\runner{% endif %}
-    - python -m unittest discover -v -p *_pyt.py -s ./xmscore/python
+    - cd build
+    - python -m unittest discover -v -p *_pyt.py -s ../xmscore/python
   import:
     - xmscore_py
 
