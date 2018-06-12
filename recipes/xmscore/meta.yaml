@@ -31,7 +31,7 @@ test:
     - xmscore/python/**/*.py
   commands:
     - {% if unix %}build/runner{% else %}build\runner{% endif %}
-    - python -m unittest discover -v -p *_pyt.py -s ../xmscore/python
+    - python -m unittest discover -v -p *_pyt.py -s ./xmscore/python
   import:
     - xmscore_py
 
