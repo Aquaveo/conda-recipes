@@ -1,0 +1,60 @@
+{% set name = "xmsmesh" %}
+{% set version = "1.0.0" %}
+{% set sha256 = "" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+   fn: {{ name }}-{{ version }}.tar.gz
+   url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
+   sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - python =3.6
+    - cmake >=3.0.0
+    - boost =1.65.1
+    - cxxtest >=4.0.0
+    - pybind11 >=2.2.2
+    - xmscore >=1.0.24
+    - xmsinterp >=1.0.8
+  run:
+    - python =3.6
+    - numpy
+
+test:
+  source_files:
+    #- build/runner{% if win %}.exe{% endif %}
+    - xmsmesh/python/*.py
+    - xmsmesh/python/**/*.py
+  commands:
+    #- {% if unix %}build/runner{% else %}build\runner{% endif %}
+    - python -m unittest discover -v -p *_pyt.py -s ./xmsmesh/python
+  import:
+    - xmsmesh_py
+    - xmsinterp_py
+    - numpy
+  requires:
+    - xmscore
+    - xmsinterp
+
+about:
+  home: aquaveo.com
+  license: XMSNG
+  license_file: LICENSE
+  summary: 'Meshing library with for xms.'
+  doc_url: 'https://aquaveo.github.io/xmsmesh/'
+  dev_url: 'https://github.com/Aquaveo/xmsmesh'
+
+extra:
+  recipe-maintainers:
+    - swainn
+    - Tsubashi
+    - gagelarsen
+    - alemon-aquaveo
