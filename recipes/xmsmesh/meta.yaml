@@ -1,6 +1,6 @@
 {% set name = "xmsmesh" %}
-{% set version = "1.0.0" %}
-{% set sha256 = "" %}
+{% set version = "0.0.1" %}
+{% set sha256 = "6c52fc5c618e6472f2bbd211eb8b54448b389ed78b287d22640f074cc521a881" %}
 
 package:
   name: {{ name|lower }}
@@ -30,11 +30,9 @@ requirements:
 
 test:
   source_files:
-    #- build/runner{% if win %}.exe{% endif %}
     - xmsmesh/python/*.py
     - xmsmesh/python/**/*.py
   commands:
-    #- {% if unix %}build/runner{% else %}build\runner{% endif %}
     - python -m unittest discover -v -p *_pyt.py -s ./xmsmesh/python
   import:
     - xmsmesh_py
