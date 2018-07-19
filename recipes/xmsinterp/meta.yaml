@@ -17,23 +17,23 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python
+    - python =3.6
     - cmake >=3.0.0
     - boost =1.65.1
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
     - xmscore >=1.0.24
   run:
-    - python
+    - python =3.6
     - numpy
 
 test:
   source_files:
-    - build/runner{% if win %}.exe{% endif %}
+    #- build/runner{% if win %}.exe{% endif %}
     - xmsinterp/python/*.py
     - xmsinterp/python/**/*.py
   commands:
-    - {% if unix %}build/runner{% else %}build\runner{% endif %}
+    #- {% if unix %}build/runner{% else %}build\runner{% endif %}
     - python -m unittest discover -v -p *_pyt.py -s ./xmsinterp/python
   import:
     - xmsinterp_py

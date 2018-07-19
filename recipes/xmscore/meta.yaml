@@ -1,5 +1,5 @@
 {% set name = "xmscore" %}
-{% set version = "1.0.25" %}
+{% set version = "1.0.26" %}
 {% set sha256 = "9981f1eaa60a8c5147989fef9b1a4da829c6a390f9bd3406db1ae8930f984703" %}
 
 package:
@@ -17,23 +17,25 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python >3.0.0
+    - python =3.6
     - cmake >=3.0.0
     - boost =1.65.1
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-
+  run:
+    - python =3.6
+    - numpy
 
 test:
   source_files:
-    - build/runner{% if win %}.exe{% endif %}
-    - build/xmscore_py.*
+    # - build/runner{% if win %}.exe{% endif %}
+    # - build/xmscore_py.*
     - xmscore/python/*.py
     - xmscore/python/**/*.py
   commands:
-    - {% if unix %}build/runner{% else %}build\runner{% endif %}
-    - cd build
-    - python -m unittest discover -v -p *_pyt.py -s ../xmscore/python
+    # - {% if unix %}build/runner{% else %}build\runner{% endif %}
+    # - cd build
+    - python -m unittest discover -v -p *_pyt.py -s ./xmscore/python
   import:
     - xmscore_py
 
