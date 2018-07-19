@@ -1,6 +1,6 @@
 {% set name = "xmscore" %}
-{% set version = "1.0.26" %}
-{% set sha256 = "9981f1eaa60a8c5147989fef9b1a4da829c6a390f9bd3406db1ae8930f984703" %}
+{% set version = "1.0.28" %}
+{% set sha256 = "569d1991165674bec55eb5648393cd6505079c47b2e81ffcdd18a362f96bf155" %}
 
 package:
   name: {{ name|lower }}
