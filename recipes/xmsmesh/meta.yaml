@@ -22,7 +22,7 @@ requirements:
     - boost =1.65.1
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.24
+    - xmscore >=1.0.28
     - xmsinterp >=1.0.8
   run:
     - python =3.6.5
@@ -39,8 +39,8 @@ test:
     - xmsinterp_py
     - numpy
   requires:
-    - xmscore
-    - xmsinterp
+    - xmscore >=1.0.28
+    - xmsinterp >=1.0.8
 
 about:
   home: aquaveo.com
