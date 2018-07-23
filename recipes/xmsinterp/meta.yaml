@@ -1,6 +1,6 @@
 {% set name = "xmsinterp" %}
 {% set version = "1.0.11" %}
-{% set sha256 = "91f6f136cff29d31f39d48e51cf86b1225d38fb340df4e4930f7ca40d0814da3" %}
+{% set sha256 = "a6eb885660130b4edc6d94d2df38c851b792bd439d3b4f212a72c050a260742f" %}
 
 package:
   name: {{ name|lower }}
@@ -22,18 +22,16 @@ requirements:
     - boost =1.65.1
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.24
+    - xmscore >=1.0.28
   run:
     - python =3.6
     - numpy
 
 test:
   source_files:
-    #- build/runner{% if win %}.exe{% endif %}
     - xmsinterp/python/*.py
     - xmsinterp/python/**/*.py
   commands:
-    #- {% if unix %}build/runner{% else %}build\runner{% endif %}
     - python -m unittest discover -v -p *_pyt.py -s ./xmsinterp/python
   import:
     - xmsinterp_py
