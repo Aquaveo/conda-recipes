@@ -1,6 +1,6 @@
 {% set name = "xmsmesh" %}
-{% set version = "0.0.5" %}
-{% set sha256 = "ab578282194cc2f84618f670a924ecea75c65ef9b21813767f94f197d7b57b04" %}
+{% set version = "0.0.6" %}
+{% set sha256 = "32a84f87e50c8958c6308ee49f7d2f369f13d269d3237a4de9b32cbb6a2a1fa8" %}
 
 package:
   name: {{ name|lower }}
