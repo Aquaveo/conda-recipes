@@ -1,0 +1,21 @@
+package:
+  name: cacurl
+  version: 0.0.1
+
+build:
+  number: 4
+  noarch: generic
+
+requirements:
+  run:
+    - libp11
+    - opensc
+    - openssl 
+    - pycurl
+
+about:
+  home: https://github.com/Aquaveo
+  license: MIT
+  license_family: MIT
+  summary: Meta-package for configuring pycurl to be able to use CAC authentication
+  dev_url: https://github.com/Aquaveo/conda-recipies
