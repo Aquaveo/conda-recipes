@@ -1,0 +1,35 @@
+package:
+  name: libp11
+  version: 0.4.8
+
+source:
+  fn: libp11-0.4.8.tar.gz
+  url: https://github.com/OpenSC/libp11/releases/download/libp11-0.4.8/libp11-0.4.8.tar.gz
+  md5: 70ae3fa6acc99b11ccc0e1de98c1b84b
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - {{ compiler('cxx') }} [not osx]
+    - automake
+    - autoconf
+    - libtool
+    - make
+    - zlib
+  host:
+    - pkg-config
+    - openssl
+  run:
+    - openssl 
+
+about:
+  home: https://github.com/OpenSC/
+  license: LGPL-2.1
+  license_family: LGPL
+  summary: PKCS#11 wrapper library
+  description: |
+      libp11 provides a higher-level (compared to the PKCS#11 library) interface to access PKCS#11 objects. It is designed to integrate with applications that use OpenSSL.
+  doc_url: https://github.com/OpenSC/libp11/wiki
+  dev_url: https://github.com/OpenSC/libp11
