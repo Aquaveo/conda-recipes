@@ -1,0 +1,38 @@
+package:
+  name: opensc
+  version: 0.19.0
+
+source:
+  fn: opensc-0.19.0.tar.gz
+  url: https://github.com/OpenSC/OpenSC/releases/download/0.19.0-rc1/opensc-0.19.0.tar.gz
+  sha256: b082c4c9acd4eab055d4f8209957a1727108741dfa26840cf0140c316d9c5e61
+  patches:
+      - fix-simclist-ndebug.patch
+
+build:
+  number: 4
+
+requirements:
+  build:
+    - {{ compiler('cxx') }} [not osx]
+    - automake
+    - autoconf
+    - libtool
+    - make
+    - zlib
+  host:
+    - openssl
+    - pkg-config
+  run:
+    - libp11
+    - openssl 
+
+about:
+  home: https://github.com/OpenSC/
+  license: LGPL-2
+  license_family: LGPL
+  summary: Open source smart card tools and middleware. 
+  description: |
+    OpenSC provides a set of libraries and utilities to work with smart cards. Its main focus is on cards that support cryptographic operations, and facilitate their use in security applications such as authentication, mail encryption and digital signatures. OpenSC implements the standard APIs to smart cards, e.g. PKCS#11 API, Windows’ Smart Card Minidriver and macOS Tokend.
+  doc_url: https://github.com/OpenSC/OpenSC/wiki
+  dev_url: https://github.com/OpenSC/OpenSC

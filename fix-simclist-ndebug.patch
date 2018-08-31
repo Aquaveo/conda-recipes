@@ -1,0 +1,14 @@
+--- src/common/simclist.c	2018-08-27 06:43:06.000000000 -0600
++++ src/common.simclist.patched.c	2018-08-30 09:42:07.000000000 -0600
+@@ -69,11 +69,6 @@
+ #define EPROTO  EIO
+ #endif
+ 
+-/* disable asserts */
+-#ifndef SIMCLIST_DEBUG
+-#define NDEBUG
+-#endif
+-
+ #include <assert.h>
+ 
+ #ifdef SIMCLIST_WITH_THREADS
