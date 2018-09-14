@@ -1,6 +1,6 @@
  {% set name = "xmsgrid" %}
-{% set version = "1.0.2" %}
-{% set sha256 = "d65caa42c3e3e8784e3ca59037843e648dac24f6ec5d3b2f2ebb94387af8246b" %}
+{% set version = "1.0.9" %}
+{% set sha256 = "78741ac0293ffb4791500a05fbd7ed2a6c3fcf73fba6661446632bf9ec8fb34c" %}
 
 package:
   name: {{ name|lower }}
@@ -22,7 +22,7 @@ requirements:
     - boost =1.65.1
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.24
+    - xmscore >=1.0.38
   run:
     - python =3.6
     - numpy
