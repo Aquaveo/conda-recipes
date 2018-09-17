@@ -8,5 +8,10 @@ make -j${CPU_COUNT}
 
 make install
 
+echo "*********************************************"
+ls -lah
+echo "${SP_DIR}"
+echo "*********************************************"
+
 mkdir -p "${SP_DIR}"
 cp *.so ${SP_DIR}
