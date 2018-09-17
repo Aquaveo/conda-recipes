@@ -8,5 +8,5 @@ make -j${CPU_COUNT}
 
 make install
 
-mkdir -p "%SP_DIR%"
-cp *.so %SP_DIR%
+mkdir -p "${SP_DIR}"
+cp *.so ${SP_DIR}
