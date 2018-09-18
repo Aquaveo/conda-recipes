@@ -1,6 +1,6 @@
 {% set name = "xmscore" %}
 {% set version = "1.0.39" %}
-{% set sha256 = "3ec2e61dc11f84bda7288432b65db0db2af16aca4869c2a0193c1b2a7d43e6c6" %}
+{% set sha256 = "6611bfc2292b78307016086a860a32a235133a04aee174cf37ed6869a65bcfeb" %}
 
 package:
   name: {{ name|lower }}
@@ -21,7 +21,7 @@ requirements:
     - cmake >=3.0.0
     - boost =1.66.0
     - cxxtest >=4.0.0
-    - pybind11 2.2.4
+    - pybind11 >=2.2.2
   run:
     - python =3.6
     - numpy
