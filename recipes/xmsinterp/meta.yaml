@@ -1,6 +1,6 @@
 {% set name = "xmsinterp" %}
-{% set version = "1.0.17" %}
-{% set sha256 = "77da2595397f22cd67fd84ca627bdcaa7cc16f2c7e40e896b2a37ecddfdff3ea" %}
+{% set version = "1.0.18" %}
+{% set sha256 = "ab22c604c28406f0bda74353897ded7aabbbf1c3cfe0e93deded994e3654feef" %}
 
 package:
   name: {{ name|lower }}
@@ -19,10 +19,10 @@ requirements:
     - {{ compiler('cxx') }}
     - python =3.6
     - cmake >=3.0.0
-    - boost =1.65.1
+    - boost =1.66.0
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.38
+    - xmscore >=1.0.40
   run:
     - python =3.6
     - numpy
