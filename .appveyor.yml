@@ -33,6 +33,7 @@ install:
 build: off
 
 test_script:
+    - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
     - conda.exe build --python 3.6 recipes\* --token %CI_CONDA_TOKEN%
 
     # copy any newly created conda packages into the conda_packages dir
