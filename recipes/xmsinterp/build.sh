@@ -7,10 +7,5 @@ ${BUILD_PREFIX}/bin/cmake -DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_BUILD_TYPE=Re
 make -j${CPU_COUNT}
 make install
 
-echo "--------------------------------------"
-ls
-echo "--------------------------------------"
-ls ${SP_DIR}
-echo "--------------------------------------"
 mkdir -p "${SP_DIR}"
 cp *.so ${SP_DIR}

@@ -37,7 +37,7 @@ script:
     fi
 
     # We just want to build all of the recipes.
-  - conda build recipes/* --token ${CI_CONDA_TOKEN}
+  - conda build --python 3.6 recipes/* --token ${CI_CONDA_TOKEN}
 
 env:
   global: 
