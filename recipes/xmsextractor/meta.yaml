@@ -34,7 +34,7 @@ test:
     - xmsextractor/python/*.py
     - xmsextractor/python/**/*.py
   commands:
-    - python -m unittest discover -v -p *_pyt.py -s ./extractor/python
+    - python -m unittest discover -v -p *_pyt.py -s ./xmsextractor/python
   imports:
     - xmsextractor_py
     - numpy
