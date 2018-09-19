@@ -1,4 +1,4 @@
- {% set name = "xmsextractor" %}
+ {% set name = "xmsgeom" %}
 {% set version = "1.0.0" %}
 {% set sha256 = "77f903332f470f2551b2ca47483bc208cca65088aa8c1da737e94c0617153af6" %}
 
@@ -23,33 +23,30 @@ requirements:
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
     - xmscore >=1.0.40
-    - xmsinterp >=1.0.18
-    - xmsgrid >=1.0.10
   run:
     - python =3.6
+    - xmscore >=1.0.40
     - numpy
 
 test:
   source_files:
-    - xmsextractor/python/*.py
-    - xmsextractor/python/**/*.py
+    - xmsgeom/python/*.py
+    - xmsgeom/python/**/*.py
   commands:
-    - python -m unittest discover -v -p *_pyt.py -s ./xmsextractor/python
+    - python -m unittest discover -v -p *_pyt.py -s ./xmsgeom/python
   imports:
-    - xmsextractor_py
+    - xmsgeom_py
     - numpy
   requires:
     - xmscore
-    - xmsinterp
-    - xmsgrid
 
 about:
   home: aquaveo.com
   license: XMSNG
   license_file: LICENSE
-  summary: 'Extractor library with for xms.'
-  doc_url: 'https://aquaveo.github.io/xmsextractor/'
-  dev_url: 'https://github.com/Aquaveo/xmsextractor'
+  summary: 'Geometry library with for xms.'
+  doc_url: 'https://aquaveo.github.io/xmsgeom/'
+  dev_url: 'https://github.com/Aquaveo/xmsgeom'
 
 extra:
   recipe-maintainers:
