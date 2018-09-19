@@ -1,5 +1,5 @@
- {% set name = "xmsgrid" %}
-{% set version = "1.0.10" %}
+ {% set name = "xmsextractor" %}
+{% set version = "1.0.0" %}
 {% set sha256 = "2dc11f97e0d33b5eb18998b680ca178821723041f4fde8c0a107defddef8b47b" %}
 
 package:
@@ -23,29 +23,33 @@ requirements:
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
     - xmscore >=1.0.40
+    - xmsinterp >=1.0.18
+    - xmsgrid >=1.0.10
   run:
     - python =3.6
     - numpy
 
 test:
   source_files:
-    - xmsgrid/python/*.py
-    - xmsgrid/python/**/*.py
+    - xmsextractor/python/*.py
+    - xmsextractor/python/**/*.py
   commands:
-    - python -m unittest discover -v -p *_pyt.py -s ./xmsgrid/python
+    - python -m unittest discover -v -p *_pyt.py -s ./extractor/python
   imports:
-    - xmsgrid_py
+    - xmsextractor_py
     - numpy
   requires:
     - xmscore
+    - xmsinterp
+    - xmsgrid
 
 about:
   home: aquaveo.com
   license: XMSNG
   license_file: LICENSE
-  summary: 'Grid library with for xms.'
-  doc_url: 'https://aquaveo.github.io/xmsgrid/'
-  dev_url: 'https://github.com/Aquaveo/xmsgrid'
+  summary: 'Extractor library with for xms.'
+  doc_url: 'https://aquaveo.github.io/xmsextractor/'
+  dev_url: 'https://github.com/Aquaveo/xmsextractor'
 
 extra:
   recipe-maintainers:
