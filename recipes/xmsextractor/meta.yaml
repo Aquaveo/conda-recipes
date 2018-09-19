@@ -27,6 +27,9 @@ requirements:
     - xmsgrid >=1.0.10
   run:
     - python =3.6
+    - xmscore >=1.0.40
+    - xmsinterp >=1.0.18
+    - xmsgrid >=1.0.10
     - numpy
 
 test:
