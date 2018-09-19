@@ -1,6 +1,6 @@
- {% set name = "xmsextractor" %}
-{% set version = "1.0.0" %}
-{% set sha256 = "77f903332f470f2551b2ca47483bc208cca65088aa8c1da737e94c0617153af6" %}
+ {% set name = "xmsgridtrace" %}
+{% set version = "1.0.1" %}
+{% set sha256 = "6833d8727fa0cf927573438e674d589d98f8c9e4a2af18c0e59e8596a64811d6" %}
 
 package:
   name: {{ name|lower }}
@@ -25,30 +25,32 @@ requirements:
     - xmscore >=1.0.40
     - xmsinterp >=1.0.18
     - xmsgrid >=1.0.10
+    - xmsextractor >=1.0.0
   run:
     - python =3.6
     - numpy
 
 test:
   source_files:
-    - xmsextractor/python/*.py
-    - xmsextractor/python/**/*.py
+    - xmsgridtrace/python/*.py
+    - xmsgridtrace/python/**/*.py
   commands:
-    - python -m unittest discover -v -p *_pyt.py -s ./xmsextractor/python
+    - python -m unittest discover -v -p *_pyt.py -s ./xmsgridtrace/python
   imports:
-    - xmsextractor_py
+    - xmsgridtrace_py
     - numpy
   requires:
     - xmscore
     - xmsinterp
     - xmsgrid
+    - xmsextractor
 
 about:
   home: aquaveo.com
   license: XMSNG
   license_file: LICENSE
-  summary: 'Extractor library with for xms.'
-  doc_url: 'https://aquaveo.github.io/xmsextractor/'
+  summary: 'Grid Trace library with for xms.'
+  doc_url: 'https://aquaveo.github.io/xmsgridtrace/'
   dev_url: 'https://github.com/Aquaveo/xmsextractor'
 
 extra:
