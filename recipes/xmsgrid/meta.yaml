@@ -25,6 +25,7 @@ requirements:
     - xmscore >=1.0.40
   run:
     - python =3.6
+    - xmscore >=1.0.40
     - numpy
 
 test:
