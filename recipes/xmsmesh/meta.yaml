@@ -1,6 +1,6 @@
 {% set name = "xmsmesh" %}
-{% set version = "0.0.6" %}
-{% set sha256 = "32a84f87e50c8958c6308ee49f7d2f369f13d269d3237a4de9b32cbb6a2a1fa8" %}
+{% set version = "1.0.0" %}
+{% set sha256 = "5ceb594ac8e28f4f6927f42df4f7df7845c393d504d2205ab6e07f712e587a3a" %}
 
 package:
   name: {{ name|lower }}
@@ -26,6 +26,8 @@ requirements:
     - xmsinterp >=1.0.8
   run:
     - python =3.6.5
+    - xmscore >=1.0.40
+    - xmsinterp >=1.0.18
     - numpy
 
 test:
