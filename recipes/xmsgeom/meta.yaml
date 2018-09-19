@@ -1,6 +1,6 @@
  {% set name = "xmsgeom" %}
 {% set version = "1.0.0" %}
-{% set sha256 = "7642dd81f41a1a80ebb897df800bf6c9e7e73a101ba09adec6d82c35e9b13513" %}
+{% set sha256 = "ec1a8549b287af190fb8d6d92f25621d0341105c47592d8a8a180fccecb848d9" %}
 
 package:
   name: {{ name|lower }}
