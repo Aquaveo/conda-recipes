@@ -19,7 +19,7 @@ requirements:
     - {{ compiler('cxx') }}
     - python =3.6
     - cmake >=3.0.0
-    - boost =1.66.0
+    - boost =1.67
     - cxxtest >=4.0.0
     - pybind11 >=2.2.2
   run:
