@@ -1,6 +1,6 @@
  {% set name = "xmsextractor" %}
-{% set version = "1.0.0" %}
-{% set sha256 = "77f903332f470f2551b2ca47483bc208cca65088aa8c1da737e94c0617153af6" %}
+{% set version = "1.0.1" %}
+{% set sha256 = "e5e73e0032f1e5d969ee109b9cc02e0c637bceb9a49a93601c072ac340005bd5" %}
 
 package:
   name: {{ name|lower }}
