@@ -1,6 +1,6 @@
  {% set name = "xmsgridtrace" %}
-{% set version = "1.0.1" %}
-{% set sha256 = "6833d8727fa0cf927573438e674d589d98f8c9e4a2af18c0e59e8596a64811d6" %}
+{% set version = "1.0.2" %}
+{% set sha256 = "bee064565f012d401699e38417fb0741f98922b1ee5450fd0683da1b2e5ff2a3" %}
 
 package:
   name: {{ name|lower }}
