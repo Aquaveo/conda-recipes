@@ -1,6 +1,6 @@
  {% set name = "xmsgrid" %}
-{% set version = "1.0.10" %}
-{% set sha256 = "2dc11f97e0d33b5eb18998b680ca178821723041f4fde8c0a107defddef8b47b" %}
+{% set version = "1.0.11" %}
+{% set sha256 = "8be6e25e01ba390b9a152a4f05d9fd192bd3009c3d46c9c4a2e0493159a85712" %}
 
 package:
   name: {{ name|lower }}
