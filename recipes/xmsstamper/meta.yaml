@@ -1,0 +1,59 @@
+{% set name = "xmsstamper" %}
+{% set version = "1.0.1" %}
+{% set sha256 = "71d720e7ed645d25afba85f3b067c91fd720938becb2eec4fd1e7dc682dd2ad4" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/Aquaveo/{{ name|lower }}/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - python =3.6
+    - cmake >=3.0.0
+    - boost =1.67
+    - cxxtest >=4.0.0
+    - pybind11 >=2.2.2
+    - xmscore >=1.0.43
+    - xmsinterp >=1.0.20
+  run:
+    - python =3.6
+    - numpy
+    - xmscore >=1.0.43
+    - xmsinterp >=1.0.20
+
+test:
+  source_files:
+    - xmsstamper/python/*.py
+    - xmsstamper/python/**/*.py
+  commands:
+    - python -m unittest discover -v -p *_pyt.py -s ./xmsstamper/python
+  imports:
+    - xmsstamper_py
+    - numpy
+  requires:
+    - xmscore
+    - xmsinterp
+
+about:
+  home: aquaveo.com
+  license: BSD2
+  license_file: LICENSE
+  summary: 'Stamping library with for xms.'
+  doc_url: 'https://aquaveo.github.io/xmsstamper/'
+  dev_url: 'https://github.com/Aquaveo/xmsstamper'
+
+extra:
+  recipe-maintainers:
+    - swainn
+    - Tsubashi
+    - gagelarsen
+    - alemon-aquaveo
