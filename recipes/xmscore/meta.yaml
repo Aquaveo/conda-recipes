@@ -32,7 +32,7 @@ test:
     - xmscore/python/**/*.py
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmscore/python
-  import:
+  imports:
     - xmscore_py
 
 
