@@ -40,7 +40,7 @@ about:
   home: aquaveo.com
   license: XMSNG
   license_file: LICENSE
-  summary: 'Support library for all XMS libraries and products.'
+  summary: 'Support library for XMS libraries and products.'
   doc_url: 'https://aquaveo.github.io/xmscore/'
   dev_url: 'https://github.com/Aquaveo/xmscore'
 
