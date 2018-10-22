@@ -1,6 +1,6 @@
 {% set name = "xmsinterp" %}
-{% set version = "1.0.20" %}
-{% set sha256 = "31415d3a25a740e35aac34f66041949d5fa382ffbac11b7e7a54adef65db5a41" %}
+{% set version = "1.0.21" %}
+{% set sha256 = "81808d1e4a259ea657cb102218592aa40bf7299a4e25b7dd95bc13b98bed69da" %}
 
 package:
   name: {{ name|lower }}
@@ -34,7 +34,7 @@ test:
     - xmsinterp/python/**/*.py
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmsinterp/python
-  import:
+  imports:
     - xmsinterp_py
     - numpy
   requires:
