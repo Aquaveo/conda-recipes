@@ -1,3 +1,5 @@
+copy %RECIPE_DIR%\condabuildinfo.cmake .
+
 if not exist "build\" mkdir build
 cd build
 
