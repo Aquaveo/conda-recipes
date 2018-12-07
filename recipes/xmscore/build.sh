@@ -1,4 +1,5 @@
 #!/bin/bash
+cp ${RECIPE_DIR}/condabuildinfo.cmake .
 
 mkdir -p build
 cd build
