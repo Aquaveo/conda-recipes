@@ -1,6 +1,6 @@
 {% set name = "xmscore" %}
-{% set version = "1.0.43" %}
-{% set sha256 = "4cc32eab710bfa96731323948673f094444717d7f23282383b287c977392cbf4" %}
+{% set version = "2.0.1" %}
+{% set sha256 = "b27549bb453e00eb0dbc60b3354c485dfad22274113ef3d7fa599816178cb421" %}
 
 package:
   name: {{ name|lower }}
@@ -17,13 +17,12 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python =3.6
+    - python {{ python }}
     - cmake >=3.0.0
     - boost =1.67
-    - cxxtest >=4.0.0
     - pybind11 >=2.2.2
   run:
-    - python =3.6
+    - python {{ python }}
     - numpy
 
 test:
@@ -33,12 +32,12 @@ test:
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmscore/python
   imports:
-    - xmscore_py
+    - xmscore
 
 
 about:
   home: aquaveo.com
-  license: XMSNG
+  license: BSD2
   license_file: LICENSE
   summary: 'Support library for XMS libraries and products.'
   doc_url: 'https://aquaveo.github.io/xmscore/'
