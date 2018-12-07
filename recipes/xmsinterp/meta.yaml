@@ -1,6 +1,6 @@
 {% set name = "xmsinterp" %}
-{% set version = "1.0.21" %}
-{% set sha256 = "81808d1e4a259ea657cb102218592aa40bf7299a4e25b7dd95bc13b98bed69da" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "f0f962dca7ce5d3e6887795451a24a1b9ea36f5b46df9dc65f1f357cf9763e4e" %}
 
 package:
   name: {{ name|lower }}
@@ -17,15 +17,14 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python =3.6
+    - python {{ python }}
     - cmake >=3.0.0
     - boost =1.67
-    - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.40
+    - xmscore 2.*
   run:
-    - python =3.6
-    - xmscore >=1.0.40
+    - python {{ python }}
+    - xmscore 2.*
     - numpy
 
 test:
@@ -35,14 +34,12 @@ test:
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmsinterp/python
   imports:
-    - xmsinterp_py
+    - xmsinterp
     - numpy
-  requires:
-    - xmscore
 
 about:
   home: aquaveo.com
-  license: XMSNG
+  license: BSD2
   license_file: LICENSE
   summary: 'Interpolation library with for xms.'
   doc_url: 'https://aquaveo.github.io/xmsinterp/'

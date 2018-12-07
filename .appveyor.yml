@@ -33,7 +33,7 @@ install:
 build: off
 
 test_script:
-    - conda.exe build --python 3.6 recipes\* --token %CI_CONDA_TOKEN%
+    - conda.exe build recipes\* --token %CI_CONDA_TOKEN%
 
     # copy any newly created conda packages into the conda_packages dir
     - cmd: mkdir conda_packages
