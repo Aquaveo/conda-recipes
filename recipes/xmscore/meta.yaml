@@ -13,6 +13,7 @@ source:
 
 build:
   number: 0
+  string: py{{ python }}
 
 requirements:
   build:
