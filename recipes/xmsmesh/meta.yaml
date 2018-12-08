@@ -1,6 +1,6 @@
 {% set name = "xmsmesh" %}
-{% set version = "1.0.1" %}
-{% set sha256 = "fce840db62d939cd2674c6f8da91740a323576351984c8f16bfcc35c4ac5eef7" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "9e79661d61739da074766190cccceac70988740d6e7a9b13d710a2ecdaf928c7" %}
 
 package:
   name: {{ name|lower }}
@@ -13,21 +13,21 @@ source:
 
 build:
   number: 0
+  string: py{{ python }}
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python =3.6.5
+    - python {{ python }}
     - cmake >=3.0.0
     - boost =1.65.1
-    - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.28
-    - xmsinterp >=1.0.8
+    - xmscore 2.*
+    - xmsinterp 2.*
   run:
-    - python =3.6.5
-    - xmscore >=1.0.40
-    - xmsinterp >=1.0.18
+    - python {{ python }}
+    - xmscore 2.*
+    - xmsinterp 2.*
     - numpy
 
 test:
@@ -37,16 +37,12 @@ test:
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmsmesh/python
   import:
-    - xmsmesh_py
-    - xmsinterp_py
+    - xmsmesh_
     - numpy
-  requires:
-    - xmscore >=1.0.28
-    - xmsinterp >=1.0.8
 
 about:
   home: aquaveo.com
-  license: XMSNG
+  license: BSD2
   license_file: LICENSE
   summary: 'Meshing library with for xms.'
   doc_url: 'https://aquaveo.github.io/xmsmesh/'
