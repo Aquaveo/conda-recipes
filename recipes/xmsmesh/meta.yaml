@@ -24,10 +24,12 @@ requirements:
     - pybind11 >=2.2.2
     - xmscore 2.*
     - xmsinterp 2.*
+    - xmsgrid 2.*
   run:
     - python {{ python }}
     - xmscore 2.*
     - xmsinterp 2.*
+    - xmsgrid 2.*
     - numpy
 
 test:
