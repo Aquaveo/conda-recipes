@@ -1,6 +1,6 @@
  {% set name = "xmsgrid" %}
-{% set version = "1.0.11" %}
-{% set sha256 = "8be6e25e01ba390b9a152a4f05d9fd192bd3009c3d46c9c4a2e0493159a85712" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "7e10594ce8f4dc25a9ac5fe7ec0143ad62f06b4ba6cd1ea0d8f801490fa2fa15" %}
 
 package:
   name: {{ name|lower }}
@@ -17,15 +17,14 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python =3.6
+    - python {{ python }}
     - cmake >=3.0.0
     - boost =1.67
-    - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.40
+    - xmscore 2.*
   run:
-    - python =3.6
-    - xmscore >=1.0.40
+    - python {{ python }}
+    - xmscore 2.*
     - numpy
 
 test:
@@ -35,14 +34,12 @@ test:
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmsgrid/python
   imports:
-    - xmsgrid_py
+    - xmsgrid
     - numpy
-  requires:
-    - xmscore
 
 about:
   home: aquaveo.com
-  license: XMSNG
+  license: BSD2
   license_file: LICENSE
   summary: 'Grid library with for xms.'
   doc_url: 'https://aquaveo.github.io/xmsgrid/'
