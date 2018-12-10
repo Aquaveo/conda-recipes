@@ -1,6 +1,6 @@
  {% set name = "xmsgridtrace" %}
-{% set version = "1.0.2" %}
-{% set sha256 = "bee064565f012d401699e38417fb0741f98922b1ee5450fd0683da1b2e5ff2a3" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "fd32714dc7015292b52c6d137bab3e5dbe2bb44064ff97fea9b1e55041d5e881" %}
 
 package:
   name: {{ name|lower }}
@@ -13,25 +13,25 @@ source:
 
 build:
   number: 0
+  string: py{{ python }}
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python =3.6
+    - python {{ python }}
     - cmake >=3.0.0
     - boost =1.67
-    - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.40
-    - xmsinterp >=1.0.18
-    - xmsgrid >=1.0.10
-    - xmsextractor >=1.0.0
+    - xmscore 2.*
+    - xmsinterp 2.*
+    - xmsgrid 2.*
+    - xmsextractor 2.*
   run:
-    - python =3.6
-    - xmscore >=1.0.40
-    - xmsinterp >=1.0.18
-    - xmsgrid >=1.0.10
-    - xmsextractor >=1.0.0
+    - python {{ python }}
+    - xmscore 2.*
+    - xmsinterp 2.*
+    - xmsgrid 2.*
+    - xmsextractor 2.*
     - numpy
 
 test:
@@ -41,17 +41,11 @@ test:
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmsgridtrace/python
   imports:
-    - xmsgridtrace_py
-    - numpy
-  requires:
-    - xmscore
-    - xmsinterp
-    - xmsgrid
-    - xmsextractor
+    - xmsgridtrace
 
 about:
   home: aquaveo.com
-  license: XMSNG
+  license: BSD2
   license_file: LICENSE
   summary: 'Grid Trace library with for xms.'
   doc_url: 'https://aquaveo.github.io/xmsgridtrace/'
