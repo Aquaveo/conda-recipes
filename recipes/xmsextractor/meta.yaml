@@ -1,6 +1,6 @@
  {% set name = "xmsextractor" %}
-{% set version = "1.0.1" %}
-{% set sha256 = "e5e73e0032f1e5d969ee109b9cc02e0c637bceb9a49a93601c072ac340005bd5" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "98ee31071b915de74e4fb208940141abd721bbe33a661b3c61a13adc53cbc86c" %}
 
 package:
   name: {{ name|lower }}
@@ -13,23 +13,23 @@ source:
 
 build:
   number: 0
+  string: py{{ python }}
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python =3.6
+    - python {{ python }}
     - cmake >=3.0.0
     - boost =1.67
-    - cxxtest >=4.0.0
     - pybind11 >=2.2.2
-    - xmscore >=1.0.40
-    - xmsinterp >=1.0.18
-    - xmsgrid >=1.0.10
+    - xmscore 2.*
+    - xmsinterp 2.*
+    - xmsgrid 2.*
   run:
-    - python =3.6
-    - xmscore >=1.0.40
-    - xmsinterp >=1.0.18
-    - xmsgrid >=1.0.10
+    - python {{ python }}
+    - xmscore 2.*
+    - xmsinterp 2.*
+    - xmsgrid 2.*
     - numpy
 
 test:
@@ -39,16 +39,12 @@ test:
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmsextractor/python
   imports:
-    - xmsextractor_py
+    - xmsextractor
     - numpy
-  requires:
-    - xmscore
-    - xmsinterp
-    - xmsgrid
 
 about:
   home: aquaveo.com
-  license: XMSNG
+  license: BSD2
   license_file: LICENSE
   summary: 'Extractor library with for xms.'
   doc_url: 'https://aquaveo.github.io/xmsextractor/'
