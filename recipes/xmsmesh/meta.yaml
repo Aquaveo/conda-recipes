@@ -20,7 +20,7 @@ requirements:
     - {{ compiler('cxx') }}
     - python {{ python }}
     - cmake >=3.0.0
-    - boost =1.65.1
+    - boost =1.67
     - pybind11 >=2.2.2
     - xmscore 2.*
     - xmsinterp 2.*
