@@ -3,7 +3,7 @@ set(EXT_INCLUDE_DIRS "${CMAKE_INSTALL_PREFIX}/include/xmscore"
                       "${CMAKE_INSTALL_PREFIX}/include/xmsgrid"
                       "${CMAKE_INSTALL_PREFIX}/include/xmsextractor")
 set(EXT_LIB_DIRS "${CMAKE_INSTALL_PREFIX}/lib")
-set(EXT_LIBS xmscore xmsinterplib xmsgridlib xmsextractorlib)
+set(EXT_LIBS xmscorelib xmsinterplib xmsgridlib xmsextractorlib)
 
 set(Boost_USE_STATIC_LIBS TRUE)
 find_package(Boost REQUIRED log_setup log system filesystem serialization timer)
