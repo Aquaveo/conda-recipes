@@ -32,6 +32,7 @@ requirements:
 
 test:
   source_files:
+    - test_files/*
     - xmsstamper/python/*.py
     - xmsstamper/python/**/*.py
   commands:
