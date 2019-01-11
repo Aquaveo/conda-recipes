@@ -1,6 +1,6 @@
 {% set name = "xmsstamper" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "471708e9098d02aae95ed25548ec8190709938e01a48f3170e18877014acf3d6" %}
+{% set version = "3.0.0" %}
+{% set sha256 = "70839b5ddeabdc04b9be088a4d3e35bddd410ced61493d5099e1cc62eed7412b" %}
 
 package:
   name: {{ name|lower }}
