@@ -36,6 +36,7 @@ test:
   source_files:
     - xmsmesh/python/*.py
     - xmsmesh/python/**/*.py
+    - test_files/python/*
   commands:
     - python -m unittest discover -v -p *_pyt.py -s ./xmsmesh/python
   import:
